@@ -1,8 +1,10 @@
 const app = require("./app");
 const http = require("http");
 
-const port = normalizePort(process.env.PORT || "3000")
-server.listen(port);
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+
+const server = http.createServer(app);
 
 function normalizePort(val) {
     const port = parseInt(val, 10);
