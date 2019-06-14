@@ -21,18 +21,18 @@ describe("routes : static", () => {
         })
     });
 
-    describe("GET /marco", () => {
+    describe("GET /about", () => {
 
         it("should return status code 200", (done) => {
-            request.get(base, (err, res, body) => {
+            request.get(base + "about", (err, res, body) => {
                 expect(res.statusCode).toBe(200);
                 done();
             })
         })
 
-        it("should return 'polo' in the body of the response", (done) => {
-            request.get(base + "marco", (err, res, body) => {
-                expect(body).toBe('polo');
+        it("should return 'About Us' in the body of the response", (done) => {
+            request.get(base + "about", (err, res, body) => {
+                expect(body).toContain('About Us');
                 done();
             })
         })
